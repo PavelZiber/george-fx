@@ -17,6 +17,13 @@ const GeList = styled(GeFlex)`
   flex-direction: column;
 `
 
+const GeListMessage = styled(GeFlex)`
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: ${({ theme }) => theme.space.big} 0;
+`
+
 export function DashboardPage() {
   const params = useParams();
   const { data, loading, error } = useCurrencies(params.search);
@@ -39,10 +46,14 @@ export function DashboardPage() {
       }>
     {loading && <GeLoader>Loading...</GeLoader>}
     {error && <GeErrorMessage>Something went wrong!</GeErrorMessage>}
+    {!loading && !error && data?.length === 0 && (
+      <GeListMessage>No data</GeListMessage>
+    )}
     {!loading && (
       <GeList>
         {data?.map(({ currency, nameI18N, exchangeRate }: Currency) =>
           <CurrencyRow
+            key={currency}
             currency={currency}
             nameI18N={nameI18N}
             exchangeRate={exchangeRate}

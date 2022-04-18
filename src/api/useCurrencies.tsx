@@ -15,7 +15,7 @@ export type Currency = {
   exchangeRate: ExchangeRate
 }
 
-type Response = {
+export type Response = {
   fx: Currency[]
 }
 
@@ -25,6 +25,5 @@ export function useCurrencies(search?: string) {
   const results = useMemo(() => {
     return filterCurrencies(search, filterRequiredCurrencyData(data?.fx))
   }, [search, data?.fx])
-
   return { data: results, loading, error }
 }

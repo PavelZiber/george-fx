@@ -6,7 +6,7 @@ import type { Currency }  from '../../api'
 type CurrencyRowProps = Pick<Currency, 'currency' | 'nameI18N' | 'exchangeRate'>
 
 export const CurrencyRow = ({ currency, nameI18N, exchangeRate }: CurrencyRowProps) => (
-  <GeRow key={currency}>
+  <GeRow key={currency} data-testid={`currency-row-${currency}`}>
     <GeColumn>
       <GeImage src={`/flags/${CURRENCY_TO_COUNTRY_MAP[currency]}.png`} alt={''} />
     </GeColumn>
