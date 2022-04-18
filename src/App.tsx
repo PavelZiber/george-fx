@@ -1,15 +1,21 @@
 import { ThemeProvider } from "styled-components";
-import logo from './logo.svg';
+import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
-import { GeAppContainer, lightTheme, GeFlex, GeAppLogo } from './ui'
+import { GeAppContainer, lightTheme} from './ui'
+import { DashboardPage, NotFoundPage } from './routes'
+
+
 
 function App() {
   return (
     <ThemeProvider theme={lightTheme}>
       <GeAppContainer>
-        <GeFlex>
-          <GeAppLogo src={logo} alt="logo" />
-        </GeFlex>
+        <Routes>
+          <Route path="/" element={<Navigate replace to="/dashboard"/>}/>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/dashboard/:search" element={<DashboardPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </GeAppContainer>
     </ThemeProvider>
   );
