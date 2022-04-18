@@ -1,7 +1,7 @@
 import { useGetRequest } from './useGetRequest'
 import { useMemo } from 'react'
 import { filterCurrencies, filterRequiredCurrencyData } from '../utils'
-const API_URL = 'https://run.mocky.io/v3/c88db14a-3128-4fbd-af74-1371c5bb0343'
+import { API_URL } from '../constants'
 
 export type ExchangeRate = {
   buy: number

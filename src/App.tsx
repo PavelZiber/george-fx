@@ -1,6 +1,5 @@
 import { ThemeProvider } from "styled-components";
 import { Routes, Route, Navigate } from "react-router-dom";
-import './App.css';
 import { GeAppContainer, lightTheme} from './ui'
 import { DashboardPage, NotFoundPage } from './routes'
 

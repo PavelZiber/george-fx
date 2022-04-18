@@ -1,3 +1,4 @@
+export const API_URL = 'https://run.mocky.io/v3/c88db14a-3128-4fbd-af74-1371c5bb0343'
 export const CURRENCY_TO_COUNTRY_MAP: Record<string, string> = {
   AED: "ae",
   GBP: "gb",

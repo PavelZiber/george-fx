@@ -1,3 +1,3 @@
 import styled from 'styled-components'
 
-export const GeBox = styled.div
+export const GeImage = styled.img``;
