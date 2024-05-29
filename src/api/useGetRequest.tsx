@@ -6,6 +6,7 @@ export type ApiResponse<T> = {
   loading: Boolean;
 };
 
+
 export function useGetRequest<T extends object>(url: string): ApiResponse<T> {
   const [data, setData] = useState<T>();
   const [error, setError] = useState<any>();

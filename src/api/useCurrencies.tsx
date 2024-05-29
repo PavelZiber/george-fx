@@ -1,7 +1,7 @@
-import { useGetRequest } from './useGetRequest'
+import { useMockRequest } from './useMockRequest'
 import { useMemo } from 'react'
 import { filterCurrencies, filterRequiredCurrencyData } from '../utils'
-import { API_URL } from '../constants'
+import { currencyResponse } from '../mocks'
 
 export type ExchangeRate = {
   buy: number
@@ -11,8 +11,8 @@ export type ExchangeRate = {
 export type Currency = {
   currency: string
   precision: number
-  nameI18N: string
-  exchangeRate: ExchangeRate
+  nameI18N?: string
+  exchangeRate?: ExchangeRate
 }
 
 export type Response = {
@@ -20,7 +20,7 @@ export type Response = {
 }
 
 export function useCurrencies(search?: string) {
-  const { data, loading, error } = useGetRequest<Response>(API_URL)
+  const { data, loading, error } = useMockRequest<Response>(currencyResponse)
 
   const results = useMemo(() => {
     return filterCurrencies(search, filterRequiredCurrencyData(data?.fx))
